@@ -1,0 +1,186 @@
+
+============================================================
+✅ TOPIC 1: VARIABLES & DATA TYPES (PYTHON)
+============================================================
+
+------------------------------------------------------------
+🔹 1. ✅ Definition
+------------------------------------------------------------
+
+✅ Variable:
+A variable is a container used to store data/value in memory.
+
+👉 Variable = "named box" that holds a value
+
+✅ Data Types:
+Data types define what kind of data a variable holds.
+
+------------------------------------------------------------
+🔹 2. ✅ Why Used
+------------------------------------------------------------
+
+We use variables & data types to:
+	✔ Store data (user input, API response, etc.)
+	✔ Perform operations (math, string processing)
+	✔ Handle LLM responses in GenAI ✅
+	✔ Build logic in programs
+
+👉 Without variables → no program can run
+
+------------------------------------------------------------
+🔹 3. ✅ How It Works (Python vs Node.js)
+------------------------------------------------------------
+
+✅ In Python:
+No need to declare type explicitly.
+Python automatically assigns type.
+
+Example:
+	name = "Shridhar"
+	age = 30
+	salary = 50000.5
+
+✅ In Node.js (comparison):
+	let name = "Shridhar";
+
+👉 Python is more flexible
+
+------------------------------------------------------------
+🔹 4. ✅ Types of Data Types
+------------------------------------------------------------
+
+✅ Integer (int):
+	age = 30
+
+✅ Float:
+	price = 99.99
+
+✅ String (str):
+	name = "Shridhar"
+
+✅ Boolean (bool):
+	is_active = True
+
+✅ None:
+	data = None
+
+------------------------------------------------------------
+🔹 5. ✅ Type Checking
+------------------------------------------------------------
+
+Example:
+	age = 30
+	print(type(age))
+
+Output:
+	<class 'int'>
+
+------------------------------------------------------------
+🔹 6. ✅ Type Conversion
+------------------------------------------------------------
+
+Example:
+	age = "30"
+	age_int = int(age)
+
+------------------------------------------------------------
+🔹 7. ✅ Simple Example
+------------------------------------------------------------
+
+	name = "Shridhar"
+	experience = 9
+	is_genai_learning = True
+
+	print("Name:", name)
+	print("Experience:", experience)
+	print("Learning GenAI:", is_genai_learning)
+
+------------------------------------------------------------
+🔹 8. ✅ Real GenAI Use Case
+------------------------------------------------------------
+
+	prompt = "Summarize this resume"
+	max_tokens = 200
+	temperature = 0.7
+
+------------------------------------------------------------
+🔹 9. ✅ Important Notes (Python Specific)
+------------------------------------------------------------
+
+	✔ No need to define type explicitly
+	✔ Variable names are case-sensitive
+	✔ Use snake_case naming
+
+	user_name = "Shridhar"   ✅ correct
+	userName = "Shridhar"    ❌ avoid
+
+------------------------------------------------------------
+
+
+Python Data Types:
+
+1. Numeric → int, float, complex
+2. Sequence → list, tuple, range
+3. Text → str
+4. Mapping → dict
+5. Set → set, frozenset
+6. Boolean → bool
+7. Binary → bytes, bytearray, memoryview
+8. None → NoneType
+
+
+
+✅ ✅ All Python Data Types
+	Python has built-in data types, grouped into categories:
+
+🔹 1. Numeric Types (Numbers)
+	Used for mathematical operations
+
+	✅ int → Integer (whole numbers)
+	✅ float → Decimal numbers
+	✅ complex → Complex numbers (rarely used)
+
+
+🔹 2. Sequence Types (Ordered Collection)
+	Store multiple values in order
+
+	✅ list → Mutable (changeable)
+	✅ tuple → Immutable (fixed)
+	✅ range → Sequence of numbers
+
+
+🔹 3. Text Type
+
+	✅ str → String (text data) 
+
+
+🔹 4. Mapping Type
+
+	✅ dict → Key-value pairs 🔥 (VERY IMPORTANT)
+
+
+🔹 5. Set Types
+	Unordered collection (unique values)
+
+	✅ set
+	✅ frozenset (immutable set)
+
+
+🔹 6. Boolean Type
+
+	✅ bool → True / False
+
+
+🔹 7. Binary Types (Low-level, rarely used)
+
+	✅ bytes
+	✅ bytearray
+	✅ memoryview
+
+
+🔹 8. None Type
+
+	✅ NoneType → None (represents no value)
+
+
+============================================================

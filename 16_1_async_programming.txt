@@ -1,0 +1,193 @@
+
+============================================================
+✅ TOPIC 16: ASYNC PROGRAMMING (BEGINNER TO CLEAR UNDERSTANDING)
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ 1. Problem (Why Async Needed)
+------------------------------------------------------------
+
+Normal execution (synchronous):
+
+	res1 = call_api_1()
+	res2 = call_api_2()
+	res3 = call_api_3()
+
+👉 Flow:
+	Call API1 → wait
+	Call API2 → wait
+	Call API3 → wait
+
+❌ Slow because each call waits for previous one
+
+------------------------------------------------------------
+🔹 ✅ 2. What is Async?
+------------------------------------------------------------
+
+👉 Async = Start multiple tasks together and wait once
+
+	API1 → running
+	API2 → running
+	API3 → running
+
+✅ Faster execution
+✅ No repeated waiting
+
+------------------------------------------------------------
+🔹 ✅ 3. Import Required
+------------------------------------------------------------
+
+	import asyncio
+
+👉 Main Python async library
+
+------------------------------------------------------------
+🔹 ✅ 4. Defining Async Function
+------------------------------------------------------------
+
+Normal function:
+
+	def my_func():
+	    print("Hello")
+
+Async function:
+
+	async def my_func():
+	    print("Hello")
+
+👉 async keyword makes function non-blocking
+
+------------------------------------------------------------
+🔹 ✅ 5. Running Async Function
+------------------------------------------------------------
+
+❌ Wrong:
+	my_func()
+
+✅ Correct:
+
+	asyncio.run(my_func())
+
+👉 asyncio.run() starts the async program
+
+------------------------------------------------------------
+🔹 ✅ 6. Using await
+------------------------------------------------------------
+
+	async def task():
+	    await some_operation
+
+👉 await means:
+	“wait for result but don’t block other tasks”
+
+👉 Rule: await only inside async def
+
+------------------------------------------------------------
+🔹 ✅ 7. Basic Example
+------------------------------------------------------------
+
+	import asyncio
+
+	async def task():
+	    print("Start Task")
+	    print("End Task")
+
+	asyncio.run(task())
+
+Output:
+	Start Task
+	End Task
+
+------------------------------------------------------------
+🔹 ✅ 8. Running Multiple Tasks
+------------------------------------------------------------
+
+❌ Wrong (runs one by one):
+	await task1()
+	await task2()
+
+✅ Correct using gather():
+
+	import asyncio
+
+	async def task1():
+	    print("Task 1")
+
+	async def task2():
+	    print("Task 2")
+
+	async def main():
+	    await asyncio.gather(task1(), task2())
+
+	asyncio.run(main())
+
+Output:
+	Task 1
+	Task 2
+
+------------------------------------------------------------
+🔹 ✅ 9. What is asyncio.gather()?
+------------------------------------------------------------
+
+👉 Runs multiple async functions together
+👉 Similar to Promise.all() in Node.js
+
+------------------------------------------------------------
+🔹 ✅ 10. Real API Example
+------------------------------------------------------------
+
+Install:
+	pip install aiohttp
+
+Code:
+
+	import asyncio
+	import aiohttp
+
+	async def call_api():
+	    async with aiohttp.ClientSession() as session:
+	        async with session.get("https://jsonplaceholder.typicode.com/users") as res:
+	            data = await res.json()
+	            print(data[0]["name"])
+
+	async def main():
+	    await asyncio.gather(
+	        call_api(),
+	        call_api(),
+	        call_api()
+	    )
+
+	asyncio.run(main())
+
+👉 Runs API calls in parallel
+
+------------------------------------------------------------
+🔹 ✅ 11. Key Concepts Summary
+------------------------------------------------------------
+
+	✔ async def → defines async function
+	✔ await → non-blocking wait
+	✔ asyncio.run() → starts execution
+	✔ asyncio.gather() → runs multiple tasks
+
+------------------------------------------------------------
+🔹 ✅ 12. Full Flow (IMPORTANT)
+------------------------------------------------------------
+
+	import asyncio
+
+	async def task():
+	    await some_operation
+
+	async def main():
+	    await asyncio.gather(task(), task())
+
+	asyncio.run(main())
+
+------------------------------------------------------------
+🎯 ONE LINE (IMPORTANT)
+------------------------------------------------------------
+
+	👉 Async = run multiple tasks without waiting one by one
+
+============================================================

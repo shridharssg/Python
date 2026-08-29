@@ -1,0 +1,184 @@
+
+============================================================
+✅ TOPIC : PYTHON DICTIONARY METHODS 
+============================================================
+
+------------------------------------------------------------
+🔹 1. ✅ keys()
+------------------------------------------------------------
+Get all keys
+
+	user = {"name": "Shridhar", "age": 30}
+
+	print(user.keys())
+
+Output:
+	dict_keys(['name', 'age'])
+
+👉 Node.js: Object.keys()
+
+------------------------------------------------------------
+🔹 2. ✅ values()
+------------------------------------------------------------
+Get all values
+
+	print(user.values())
+
+Output:
+	dict_values(['Shridhar', 30])
+
+👉 Node.js: Object.values()
+
+------------------------------------------------------------
+🔹 3. ✅ items()
+------------------------------------------------------------
+Get key-value pairs
+
+	print(user.items())
+
+Output:
+	dict_items([('name', 'Shridhar'), ('age', 30)])
+
+👉 Node.js: Object.entries()
+
+------------------------------------------------------------
+🔹 4. ✅ get(key)
+------------------------------------------------------------
+Get value safely
+
+	print(user.get("name"))
+	print(user.get("city"))   # None (no error)
+
+👉 Avoid this:
+	user["city"]   ❌ ERROR
+
+------------------------------------------------------------
+🔹 5. ✅ update()
+------------------------------------------------------------
+Update or add multiple values
+
+	user.update({"city": "Pune", "age": 31})
+
+	print(user)
+
+Output:
+	{'name': 'Shridhar', 'age': 31, 'city': 'Pune'}
+
+👉 Node.js: Object.assign()
+
+------------------------------------------------------------
+🔹 6. ✅ pop(key)
+------------------------------------------------------------
+Remove by key
+
+	user.pop("age")
+
+	print(user)
+
+------------------------------------------------------------
+🔹 7. ✅ popitem()
+------------------------------------------------------------
+Remove last inserted item
+
+	user.popitem()
+
+------------------------------------------------------------
+🔹 8. ✅ clear()
+------------------------------------------------------------
+Remove all items
+
+	user.clear()
+
+------------------------------------------------------------
+🔹 9. ✅ copy()
+------------------------------------------------------------
+Copy dictionary
+
+	new_user = user.copy()
+
+------------------------------------------------------------
+🔹 10. ✅ setdefault(key, value)
+------------------------------------------------------------
+Get value or set default
+
+	user = {"name": "Shridhar"}
+
+	user.setdefault("city", "Pune")
+
+	print(user)
+
+👉 If key exists → returns value
+👉 If key not exists → adds default value
+
+------------------------------------------------------------
+🔹 11. ✅ len() (Function)
+------------------------------------------------------------
+Get number of keys
+
+	print(len(user))
+
+👉 Node.js: Object.keys(obj).length
+
+------------------------------------------------------------
+✅ COMMON OPERATIONS (VERY IMPORTANT 🔥)
+------------------------------------------------------------
+
+🔹 ✅ Check if key exists
+
+	user = {"name": "Shridhar"}
+
+	print("name" in user)   # True
+
+👉 Node.js: hasOwnProperty / "in"
+
+------------------------------------------------------------
+🔹 ✅ Access values
+------------------------------------------------------------
+
+	print(user["name"])
+	print(user.get("name"))  # safer
+
+------------------------------------------------------------
+🔹 ✅ Loop dictionary
+------------------------------------------------------------
+
+	for key, value in user.items():
+	    print(key, value)
+
+------------------------------------------------------------
+✅ REAL GENAI SCENARIO
+------------------------------------------------------------
+
+	response = {
+	    "summary": "Good candidate",
+	    "score": 8.5,
+	    "skills": ["Python", "AI"]
+	}
+
+	print(response.get("score"))
+
+	if "skills" in response:
+	    print("Skills exist")
+
+------------------------------------------------------------
+✅ QUICK MAPPING (NODE.JS → PYTHON)
+------------------------------------------------------------
+
+	Object.keys()      → keys() ✅
+	Object.values()    → values() ✅
+	Object.entries()   → items() ✅
+	obj[key]           → dict[key] ✅
+	delete obj.key     → pop() ✅
+
+------------------------------------------------------------
+✅ WHEN TO USE WHICH
+------------------------------------------------------------
+
+	✔ Use get() → safe access
+	✔ Use items() → looping
+	✔ Use update() → bulk changes
+	✔ Use "in" → check key exists
+
+	❌ Avoid direct access when unsure
+
+------------------------------------------------------------

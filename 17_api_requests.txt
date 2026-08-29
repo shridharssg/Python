@@ -1,0 +1,168 @@
+
+============================================================
+✅ TOPIC 15: API CALLS (PYTHON REQUESTS)
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ 1. What is API Call?
+------------------------------------------------------------
+
+API call = sending request to server and getting response
+
+	Client → API → Response (JSON)
+
+------------------------------------------------------------
+🔹 ✅ 2. Node.js vs Python Mapping
+------------------------------------------------------------
+
+	axios.get()   → requests.get()
+	axios.post()  → requests.post()
+	res.data      → response.json()
+
+------------------------------------------------------------
+🔹 ✅ 3. Install Library
+------------------------------------------------------------
+
+	pip install requests
+
+------------------------------------------------------------
+🔹 ✅ 4. GET Request
+------------------------------------------------------------
+
+	import requests
+
+	response = requests.get("https://jsonplaceholder.typicode.com/users")
+
+	print(response.status_code)
+	print(response.json())
+
+Output:
+	200
+	[list of users]
+
+------------------------------------------------------------
+🔹 ✅ 5. Access Data
+------------------------------------------------------------
+
+	data = response.json()
+	print(data[0]["name"])
+
+Output:
+	Leanne Graham
+
+------------------------------------------------------------
+🔹 ✅ 6. POST Request
+------------------------------------------------------------
+
+	import requests
+
+	data = {
+	    "name": "Shridhar",
+	    "job": "Engineer"
+	}
+
+	response = requests.post(
+	    "https://reqres.in/api/users",
+	    json=data
+	)
+
+	print(response.status_code)
+	print(response.json())
+
+Output:
+	201
+	{"name": "Shridhar", ...}
+
+------------------------------------------------------------
+🔹 ✅ 7. Headers
+------------------------------------------------------------
+
+	headers = {
+	    "Authorization": "Bearer API_KEY"
+	}
+
+	response = requests.get(url, headers=headers)
+
+------------------------------------------------------------
+🔹 ✅ 8. Query Parameters
+------------------------------------------------------------
+
+	params = {
+	    "page": 2
+	}
+
+	response = requests.get(url, params=params)
+
+👉 URL becomes: ?page=2
+
+------------------------------------------------------------
+🔹 ✅ 9. Error Handling
+------------------------------------------------------------
+
+	import requests
+
+	try:
+	    response = requests.get(url)
+
+	    if response.status_code == 200:
+	        print(response.json())
+	    else:
+	        print("Error:", response.status_code)
+
+	except Exception as e:
+	    print("Exception:", e)
+
+------------------------------------------------------------
+🔹 ✅ 10. Status Codes
+------------------------------------------------------------
+
+	200 → Success ✅
+	201 → Created ✅
+	400 → Bad Request ❌
+	401 → Unauthorized ❌
+	500 → Server Error ❌
+
+------------------------------------------------------------
+🔹 ✅ 11. GenAI Example
+------------------------------------------------------------
+
+	import requests
+
+	headers = {
+	    "Authorization": "Bearer API_KEY"
+	}
+
+	data = {
+	    "prompt": "Summarize text"
+	}
+
+	response = requests.post(
+	    "https://api.llm.com/chat",
+	    headers=headers,
+	    json=data
+	)
+
+	print(response.json())
+
+------------------------------------------------------------
+🔹 ✅ 12. Important Note
+------------------------------------------------------------
+
+	requests = synchronous (blocking)
+	use aiohttp for async
+
+------------------------------------------------------------
+✅ SUMMARY
+------------------------------------------------------------
+
+	✔ requests.get() → fetch data
+	✔ requests.post() → send data
+	✔ response.json() → parse JSON
+
+------------------------------------------------------------
+🎯 ONE LINE
+------------------------------------------------------------
+
+	➡ requests = Python version of axios/fetch
+
+============================================================

@@ -1,0 +1,158 @@
+
+============================================================
+✅ TOPIC 11: EXCEPTION HANDLING
+============================================================
+
+============================================================
+✅ BASIC SYNTAX
+============================================================
+
+	try:
+	    # risky code
+	except:
+	    # handle error
+
+------------------------------------------------------------
+🔹 ✅ Example
+------------------------------------------------------------
+
+	try:
+	    x = 10 / 0
+	except:
+	    print("Error occurred")
+
+Output:
+	Error occurred
+
+============================================================
+✅ SPECIFIC EXCEPTION
+============================================================
+
+	try:
+	    num = int("abc")
+	except ValueError:
+	    print("Invalid number")
+
+Output:
+	Invalid number
+
+============================================================
+✅ MULTIPLE EXCEPTIONS
+============================================================
+
+	try:
+	    x = int("abc")
+	except ValueError:
+	    print("Value Error")
+	except ZeroDivisionError:
+	    print("Division Error")
+
+Output:
+	Value Error
+
+============================================================
+✅ USING ELSE
+============================================================
+
+	try:
+	    x = int("10")
+	except:
+	    print("Error")
+	else:
+	    print("Success")
+
+Output:
+	Success
+
+============================================================
+✅ USING FINALLY
+============================================================
+
+	try:
+	    x = 10 / 2
+	except:
+	    print("Error")
+	finally:
+	    print("Done")
+
+Output:
+	Done
+
+============================================================
+✅ FULL STRUCTURE
+============================================================
+
+	try:
+	    # risky code
+	except ExceptionType:
+	    # handle error
+	else:
+	    # if no error
+	finally:
+	    # always runs
+
+============================================================
+✅ REAL GENAI USE CASE
+============================================================
+
+------------------------------------------------------------
+🔹 API / LLM Handling
+------------------------------------------------------------
+
+	try:
+	    response = int("abc")
+	except Exception as e:
+	    print("Error:", e)
+
+Output:
+	Error: invalid literal for int()
+
+------------------------------------------------------------
+🔹 JSON Handling
+------------------------------------------------------------
+
+	import json
+
+	try:
+	    response = '{"score": 8.5}'
+	    data = json.loads(response)
+	    print(data["score"])
+	except:
+	    print("Invalid response")
+
+Output:
+	8.5
+
+============================================================
+✅ COMMON EXCEPTIONS
+============================================================
+
+	✔ ValueError → wrong value type
+	✔ TypeError → wrong operation
+	✔ ZeroDivisionError → divide by zero
+	✔ KeyError → missing key in dict
+
+============================================================
+✅ BEST PRACTICE
+============================================================
+
+❌ Bad:
+	except:
+	    pass
+
+✅ Good:
+	except Exception as e:
+	    print(e)
+
+============================================================
+✅ SUMMARY
+============================================================
+
+	✔ try → risky code
+	✔ except → handle error
+	✔ else → if no error
+	✔ finally → always runs
+
+👉 Exception handling = safely handling errors without breaking program
+
+============================================================

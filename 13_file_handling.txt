@@ -1,0 +1,119 @@
+
+============================================================
+✅ TOPIC 12: FILE HANDLING (PYTHON - TXT)
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ 1. Definition
+------------------------------------------------------------
+File handling is used to read and write data from files (like .txt, .json, etc.).
+
+👉 File handling = “store or read data from files”
+
+------------------------------------------------------------
+🔹 ✅ 2. Why Used (VERY IMPORTANT 🔥)
+------------------------------------------------------------
+	✔ Store logs / results
+	✔ Save LLM outputs
+	✔ Read input data (resume, text)
+	✔ Persist data
+
+============================================================
+✅ 3. OPEN A FILE
+============================================================
+
+	file = open("data.txt", "r")
+
+Modes:
+	"r" → read
+	"w" → write (overwrite)
+	"a" → append
+
+============================================================
+✅ 4. READ FILE
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ Example
+------------------------------------------------------------
+
+	file = open("data.txt", "r")
+
+	content = file.read()
+	print(content)
+
+	file.close()
+
+Output:
+	(Shows file content)
+
+------------------------------------------------------------
+🔹 ✅ Better Way (BEST PRACTICE ✅)
+------------------------------------------------------------
+
+	with open("data.txt", "r") as file:
+	    content = file.read()
+	    print(content)
+
+👉 File auto closes ✅
+
+============================================================
+✅ 5. WRITE FILE
+============================================================
+
+	with open("data.txt", "w") as file:
+	    file.write("Hello Python")
+
+Output (file content):
+	Hello Python
+
+============================================================
+✅ 6. APPEND FILE
+============================================================
+
+	with open("data.txt", "a") as file:
+	    file.write("
+GenAI Learning")
+
+Output (file content):
+	Hello Python
+	GenAI Learning
+
+============================================================
+✅ 7. READ LINE BY LINE
+============================================================
+
+	with open("data.txt", "r") as file:
+	    for line in file:
+	        print(line)
+
+Output:
+	Hello Python
+	GenAI Learning
+
+============================================================
+✅ 9. COMMON MISTAKES ❌
+============================================================
+
+	❌ File not closed
+	❌ Using wrong mode
+	❌ Overwriting accidentally
+
+============================================================
+✅ 10. BEST PRACTICE ✅
+============================================================
+
+👉 Always use:
+
+	with open(...) as file:
+
+============================================================
+✅ SUMMARY
+============================================================
+
+	✔ Read → "r"
+	✔ Write → "w"
+	✔ Append → "a"
+	✔ Always use with open() ✅
+
+============================================================

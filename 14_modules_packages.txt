@@ -1,0 +1,119 @@
+
+============================================================
+✅ TOPIC 13: MODULES & PACKAGES (UPDATED WITH CODE EXAMPLES)
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ 1. Definition
+------------------------------------------------------------
+
+	✅ Module:
+		A Python file (.py) that contains reusable code.
+
+	👉 Module = single file with functions/logic
+
+	✅ Package:
+		A folder that contains multiple modules.
+
+	👉 Package = collection of modules
+	
+	
+		👉 Module = file, Package = folder
+
+
+------------------------------------------------------------
+🔹 ✅ 2. Why Used 
+------------------------------------------------------------
+
+	✔ Code reusability
+	✔ Organize large projects
+	✔ Clean structure
+	✔ Required in real-world & GenAI apps
+
+------------------------------------------------------------
+🔹 ✅ 3. Creating Module (WITH CODE)
+------------------------------------------------------------
+
+✅ Step 1: Create file math_utils.py
+
+	def add(a, b):
+	    return a + b
+
+✅ Step 2: Use module
+
+	import math_utils
+
+	print(math_utils.add(2, 3))
+
+Output:
+	5
+
+------------------------------------------------------------
+🔹 ✅ 4. Types of Import
+------------------------------------------------------------
+
+✅ Full import
+	import math_utils
+	print(math_utils.add(2, 3))
+
+✅ Specific import
+	from math_utils import add
+	print(add(2, 3))
+
+✅ Alias import
+	import math_utils as m
+	print(m.add(2, 3))
+
+------------------------------------------------------------
+🔹 ✅ 5. Built-in Modules (WITH CODE)
+------------------------------------------------------------
+
+	import math
+	print(math.sqrt(16))
+
+Output:
+	4.0
+
+------------------------------------------------------------
+🔹 ✅ 6. Creating Package
+------------------------------------------------------------
+
+	package_name/
+		__init__.py
+		module1.py
+		module2.py
+
+👉 __init__.py makes folder a package
+
+------------------------------------------------------------
+🔹 ✅ 7. Using Package (WITH CODE)
+------------------------------------------------------------
+
+	from package_name.module1 import add
+	print(add(2, 3))
+
+------------------------------------------------------------
+🔹 ✅ 8. External Modules
+------------------------------------------------------------
+
+	pip install requests
+
+	import requests
+
+------------------------------------------------------------
+🔹 ❌ 10. Common Mistakes
+------------------------------------------------------------
+
+	❌ Wrong import path
+	❌ Conflicting file names
+	❌ Missing __init__.py
+
+------------------------------------------------------------
+✅ SUMMARY
+------------------------------------------------------------
+
+	✔ Module = Python file
+	✔ Package = folder
+	✔ import for reuse
+
+------------------------------------------------------------

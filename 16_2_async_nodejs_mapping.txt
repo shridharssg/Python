@@ -1,0 +1,147 @@
+
+============================================================
+✅ TOPIC: ASYNC PROGRAMMING (PYTHON vs NODE.JS WITH ERRORS)
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ 1. Parallel Execution
+------------------------------------------------------------
+
+✅ Node.js (Promise.all)
+
+	const results = await Promise.all([
+	  axios.get("api1"),
+	  axios.get("api2")
+	])
+
+✅ Python (asyncio.gather)
+
+	import asyncio
+
+	async def t1(): return "A"
+	async def t2(): return "B"
+
+	results = await asyncio.gather(t1(), t2())
+
+👉 Both run tasks in parallel ✅
+
+------------------------------------------------------------
+🔹 ❌ Error Behavior (IMPORTANT 🔥)
+------------------------------------------------------------
+
+✅ Node.js
+
+	await Promise.all([
+	  success(),
+	  fail()
+	])
+
+👉 If one fails → whole promise fails ❌
+
+✅ Python
+
+	await asyncio.gather(t1(), t2())
+
+👉 If one task fails → whole program fails ❌
+
+------------------------------------------------------------
+🔹 ✅ 2. Handle Errors Safely
+------------------------------------------------------------
+
+✅ Node.js (try/catch)
+
+	try {
+	  const result = await Promise.all([t1(), t2()])
+	} catch (e) {
+	  console.log(e)
+	}
+
+✅ Python (try/except)
+
+	try:
+	    results = await asyncio.gather(t1(), t2())
+	except Exception as e:
+	    print(e)
+
+------------------------------------------------------------
+🔹 ✅ 3. All Results (even if failed)
+------------------------------------------------------------
+
+✅ Node.js → Promise.allSettled
+
+	const results = await Promise.allSettled([
+	  t1(), t2()
+	])
+
+✅ Python → return_exceptions=True
+
+	results = await asyncio.gather(
+	    t1(), t2(),
+	    return_exceptions=True
+	)
+
+👉 Returns:
+	['Success', Exception(...)]
+
+------------------------------------------------------------
+🔹 ✅ 4. First Completed Task
+------------------------------------------------------------
+
+✅ Node.js → Promise.race
+
+	await Promise.race([t1(), t2()])
+
+✅ Python → asyncio.wait
+
+	done, pending = await asyncio.wait(
+	    [t1(), t2()],
+	    return_when=asyncio.FIRST_COMPLETED
+	)
+
+------------------------------------------------------------
+🔹 ✅ 5. Sequential Execution
+------------------------------------------------------------
+
+✅ Node.js
+
+	await t1()
+	await t2()
+
+✅ Python
+
+	await t1()
+	await t2()
+
+👉 Runs one by one ❌ (no parallel)
+
+------------------------------------------------------------
+🔹 ✅ 6. Best Practice for GenAI 🔥
+------------------------------------------------------------
+
+✅ Python
+
+	results = await asyncio.gather(
+	    task1(), task2(), task3(),
+	    return_exceptions=True
+	)
+
+✅ Handle inside task
+
+	async def task():
+	    try:
+	        return await api_call()
+	    except Exception as e:
+	        return str(e)
+
+👉 Safe + no crash ✅
+
+------------------------------------------------------------
+✅ SUMMARY (NODE vs PYTHON)
+------------------------------------------------------------
+
+	Promise.all           → asyncio.gather
+	Promise.allSettled    → gather(return_exceptions=True)
+	Promise.race          → asyncio.wait(FIRST_COMPLETED)
+	Sequential            → await one by one
+
+------------------------------------------------------------

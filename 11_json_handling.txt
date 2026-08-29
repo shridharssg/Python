@@ -1,0 +1,104 @@
+
+============================================================
+✅ TOPIC 10: JSON HANDLING (PYTHON - SIMPLE & PRACTICAL)
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ What is JSON?
+------------------------------------------------------------
+JSON is a common data format used to exchange data between systems.
+
+👉 JSON = common language between Python, APIs, frontend, LLM
+
+------------------------------------------------------------
+🔹 ✅ Why JSON is Needed
+------------------------------------------------------------
+
+Problem:
+	Python dict is not understood by other systems directly
+
+	data = {"name": "Shridhar"}
+
+Solution:
+	Convert to JSON format
+
+	import json
+	json_data = json.dumps(data)
+	print(json_data)
+
+Output:
+	{"name": "Shridhar"}
+
+👉 Now it can be shared with any system ✅
+
+
+============================================================
+✅ CORE OPERATIONS (MOST IMPORTANT)
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ 1. Python → JSON (dumps)
+------------------------------------------------------------
+Used when sending data
+
+	import json
+
+	data = {"name": "Shridhar", "exp": 9}
+
+	json_data = json.dumps(data)
+
+	print(json_data)
+
+Output:
+	{"name": "Shridhar", "exp": 9}
+
+------------------------------------------------------------
+🔹 ✅ 2. JSON → Python (loads)
+------------------------------------------------------------
+Used when receiving data
+
+	import json
+
+	json_data = '{"name": "Shridhar", "exp": 9}'
+
+	data = json.loads(json_data)
+
+	print(data["name"])
+
+Output:
+	Shridhar
+
+============================================================
+✅ REAL GENAI USE CASE
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ Response Handling
+------------------------------------------------------------
+	import json
+
+	response = '{"summary": "Good", "score": 8.5}'
+
+	data = json.loads(response)
+
+	print(data["score"])
+
+Output:
+	8.5
+
+============================================================
+✅ KEY DIFFERENCE
+============================================================
+
+	Python dict  → JSON object
+	True         → true
+	None         → null
+
+============================================================
+✅ MUST REMEMBER
+============================================================
+
+	✔ json.dumps() → Python → JSON
+	✔ json.loads() → JSON → Python
+
+============================================================

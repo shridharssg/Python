@@ -1,0 +1,95 @@
+
+============================================================
+✅ TOPIC : FUNCTIONS (PYTHON)
+============================================================
+
+------------------------------------------------------------
+🔹 ✅ 1. Definition
+------------------------------------------------------------
+
+A function is a block of reusable code that performs a specific task.
+
+------------------------------------------------------------
+🔹 ✅ 2. Why Used (VERY IMPORTANT)
+------------------------------------------------------------
+
+	✔ Avoid code repetition
+	✔ Write clean code
+	✔ Break complex logic into smaller parts
+	✔ Reuse logic (VERY IMPORTANT in GenAI)
+
+------------------------------------------------------------
+🔹 ✅ 3. How It Works
+------------------------------------------------------------
+
+✅ Basic Syntax:
+
+	def function_name():
+	    print("Hello")
+
+👉 Calling function:
+
+	function_name()
+
+------------------------------------------------------------
+🔹 ✅ 4. Function with Return Value and parameters
+------------------------------------------------------------
+
+Return = function gives back result
+
+	def add(a, b):
+	    return a + b
+
+	result = add(5, 3)
+
+	print(result)   # 8
+
+------------------------------------------------------------
+🔹 ✅ 5. Multiple Parameters
+------------------------------------------------------------
+
+	def user_info(name, exp):
+	    return f"{name} has {exp} years experience"
+
+	print(user_info("Shridhar", 9))
+
+------------------------------------------------------------
+🔹 ✅ 6. Default Parameters
+------------------------------------------------------------
+
+	def greet(name="User"):
+	    print("Hello", name)
+
+	greet()            # Hello User
+	greet("Shridhar")  # Hello Shridhar
+
+------------------------------------------------------------
+🔹 ✅ 7. Keyword Arguments
+------------------------------------------------------------
+
+	def user(name, age):
+	    print(name, age)
+
+	user(age=30, name="Shridhar")
+
+👉 Order does not matter
+
+------------------------------------------------------------
+🔹 ✅ 8. Return Multiple Values ************************************************************
+------------------------------------------------------------
+
+	def get_data():
+	    return "Shridhar", 9
+
+	name, exp = get_data()
+
+	print(name, exp)
+
+------------------------------------------------------------
+🔹 Resume Analyzer Example
+------------------------------------------------------------
+
+	def evaluate_candidate(skills):
+	    if "Python" in skills:
+	        return "Good Candidate"
+	    return "Average Candidate"
