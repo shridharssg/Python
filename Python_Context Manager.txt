@@ -1,0 +1,391 @@
+============================================================
+                PYTHON CONTEXT MANAGER
+============================================================
+
+1. WHAT IS A CONTEXT MANAGER?
+------------------------------------------------------------
+
+A Context Manager automatically manages resources and
+performs cleanup after use.
+
+Common Resources:
+
+    - Files
+    - Database Connections
+    - Network Connections
+    - Locks
+
+Most Common Example:
+
+    with open("data.txt") as file:
+        data = file.read()
+
+Python automatically closes the file after the block.
+
+
+============================================================
+2. PROBLEM WITHOUT CONTEXT MANAGER
+============================================================
+
+Code:
+
+    file = open("data.txt")
+
+    data = file.read()
+
+    file.close()
+
+Works fine.
+
+Problem:
+
+    file = open("data.txt")
+
+    data = file.read()
+
+    10 / 0
+
+    file.close()
+
+Output:
+
+    ZeroDivisionError
+
+Since the exception occurs before file.close(),
+the file remains open.
+
+Issues:
+
+    - Resource Leak
+    - Memory Usage
+    - File Lock Problems
+
+
+============================================================
+3. OLD SOLUTION - TRY FINALLY
+============================================================
+
+Before Context Managers:
+
+    try:
+
+        file = open("data.txt")
+
+        data = file.read()
+
+    finally:
+
+        file.close()
+
+Reason:
+
+    finally always executes.
+
+Even if an exception occurs,
+the file gets closed.
+
+
+============================================================
+4. CONTEXT MANAGER SOLUTION
+============================================================
+
+Instead of writing try-finally every time:
+
+    with open("data.txt") as file:
+
+        data = file.read()
+
+No need:
+
+    file.close()
+
+Python automatically closes the file.
+
+
+============================================================
+5. BREAK THIS LINE
+============================================================
+
+    with open("data.txt") as file:
+
+Part 1:
+
+    open("data.txt")
+
+Opens file and returns a file object.
+
+
+Part 2:
+
+    as file
+
+Stores file object in variable:
+
+    file
+
+
+Part 3:
+
+    with
+
+Creates a Context Manager that automatically
+handles cleanup.
+
+
+============================================================
+6. INTERNAL WORKING
+============================================================
+
+Code:
+
+    with open("data.txt") as file:
+
+        data = file.read()
+
+Internally behaves similar to:
+
+    file = open("data.txt")
+
+    try:
+
+        data = file.read()
+
+    finally:
+
+        file.close()
+
+This is the MOST IMPORTANT interview point.
+
+
+============================================================
+7. EXECUTION FLOW
+============================================================
+
+Step 1:
+
+    Open File
+
+Step 2:
+
+    Enter with Block
+
+Step 3:
+
+    Execute Code
+
+Step 4:
+
+    Exit Block
+
+Step 5:
+
+    Automatically Close File
+
+============================================================
+9. SPECIAL METHODS
+============================================================
+
+Context Managers use two methods.
+
+
+__enter__()
+------------------------------------------------------------
+
+Runs before the block starts.
+
+Used for:
+
+    - Open File
+    - Create Connection
+    - Acquire Lock
+
+
+__exit__()
+------------------------------------------------------------
+
+Runs after the block ends.
+
+Used for:
+
+    - Close File
+    - Close Connection
+    - Release Lock
+    - Cleanup Resources
+
+
+============================================================
+10. CUSTOM CONTEXT MANAGER
+============================================================
+
+Example:
+
+    class MyContext:
+
+        def __enter__(self):
+
+            print("Start")
+
+            return self
+
+        def __exit__(self,
+                     exc_type,
+                     exc_value,
+                     traceback):
+
+            print("End")
+
+
+Usage:
+
+    with MyContext():
+
+        print("Inside Block")
+
+
+Output:
+
+    Start
+    Inside Block
+    End
+
+
+Flow:
+
+    __enter__()
+
+    Execute Block
+
+    __exit__()
+
+
+============================================================
+11. GENAI / RAG USE CASE
+============================================================
+
+Reading a document:
+
+    with open("knowledge.txt") as file:
+
+        content = file.read()
+
+Benefits:
+
+    - Automatic Cleanup
+    - Better Resource Management
+    - Safer Document Processing
+
+Used In:
+
+    - RAG Pipelines
+    - PDF Processing
+    - Document Loaders
+    - Embedding Pipelines
+
+
+============================================================
+12. INTERVIEW QUESTIONS
+============================================================
+
+Q. What is a Context Manager?
+
+Answer:
+
+    A Context Manager automatically manages
+    resources and performs cleanup.
+
+
+Q. Why use Context Manager?
+
+Answer:
+
+    To automatically release resources even
+    if an exception occurs.
+
+
+Q. What does 'with' do?
+
+Answer:
+
+    It manages the resource lifecycle and
+    performs automatic cleanup.
+
+
+Q. Which methods are used internally?
+
+Answer:
+
+    __enter__()
+    __exit__()
+
+
+Q. Advantage over try-finally?
+
+Answer:
+
+    - Cleaner Code
+    - Less Code
+    - Automatic Cleanup
+    - Exception Safe
+
+
+============================================================
+13. MOST IMPORTANT INTERVIEW ANSWER
+============================================================
+
+Question:
+
+    Explain:
+
+    with open("data.txt") as file:
+
+        data = file.read()
+
+Answer:
+
+    open("data.txt") opens the file and
+    returns a file object.
+
+    as file stores that object into the
+    variable named file.
+
+    with creates a Context Manager.
+
+    The Context Manager automatically
+    closes the file after the block
+    finishes.
+
+    Internally it behaves similar to:
+
+        try:
+            ...
+        finally:
+            file.close()
+
+
+============================================================
+ONE-MINUTE REVISION
+============================================================
+
+Context Manager
+    -> Automatically manages resources.
+
+with
+    -> Creates a Context Manager.
+
+__enter__()
+    -> Runs before block starts.
+
+__exit__()
+    -> Runs after block ends.
+
+Main Benefit
+    -> Automatic Cleanup
+
+Most Common Example
+
+    with open("data.txt") as file:
+        data = file.read()
+
+============================================================
+END OF NOTES
+============================================================

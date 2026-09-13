@@ -1,0 +1,481 @@
+============================================================
+        PYTHON ITERATORS & GENERATORS (INTERVIEW NOTES)
+============================================================
+
+IMPORTANT FIRST LINE FOR INTERVIEW
+------------------------------------------------------------
+
+Iterator = Object that gives one value at a time.
+
+Generator = Special function that creates an iterator using
+            the yield keyword.
+
+Remember:
+
+    Every Generator is an Iterator.
+
+    Every Iterator is NOT a Generator.
+
+
+============================================================
+1. ITERATOR
+============================================================
+
+    An Iterator is an object that returns one value at a time using next() 
+	and keeps track of its current position.
+
+REAL LIFE EXAMPLE
+------------------------------------------------------------
+
+Imagine a TV remote.
+
+Channels:
+
+    101
+    102
+    103
+
+When you press NEXT:
+
+    101
+
+Press NEXT again:
+
+    102
+
+Press NEXT again:
+
+    103
+
+The remote gives ONE channel at a time.
+
+This is the concept of an Iterator.
+
+
+DEFINITION
+------------------------------------------------------------
+
+An Iterator is an object that:
+
+    1. Remembers current position
+    2. Gives next value
+    3. Stops when data ends
+
+
+SIMPLE EXAMPLE
+------------------------------------------------------------
+
+    numbers = [10, 20, 30]
+
+    it = iter(numbers)
+
+    print(next(it))
+    print(next(it))
+    print(next(it))
+
+Output:
+
+    10
+    20
+    30
+
+Explanation:
+
+    iter(numbers)
+        Creates iterator.
+
+    next(it)
+        Gets next value.
+
+
+VISUAL REPRESENTATION
+------------------------------------------------------------
+
+Initial:
+
+    [10, 20, 30]
+      ^
+
+After first next():
+
+    [10, 20, 30]
+          ^
+
+After second next():
+
+    [10, 20, 30]
+              ^
+
+After third next():
+
+    End of data.
+
+
+STOPITERATION
+------------------------------------------------------------
+
+    numbers = [10,20]
+
+    it = iter(numbers)
+
+    next(it)
+    next(it)
+    next(it)
+
+Output:
+
+    StopIteration
+
+Meaning:
+
+    No more data available.
+
+
+FOR LOOP INTERNALLY USES ITERATOR
+------------------------------------------------------------
+
+Your Code:
+
+    for n in [10,20,30]:
+        print(n)
+
+Internally Python does:
+
+    it = iter([10,20,30])
+
+    next(it)
+    next(it)
+    next(it)
+
+
+
+
+============================================================
+2. GENERATOR
+============================================================
+
+REAL LIFE EXAMPLE
+------------------------------------------------------------
+
+Suppose there is a tea machine.
+
+When you press button:
+
+    Tea Cup 1
+
+Press again:
+
+    Tea Cup 2
+
+Press again:
+
+    Tea Cup 3
+
+The machine creates tea only when requested.
+
+This is similar to a Generator.
+
+
+DEFINITION
+------------------------------------------------------------
+
+A Generator is a special function that creates values one by
+one using the yield keyword.
+
+
+WHY DO WE NEED GENERATORS?
+------------------------------------------------------------
+
+Suppose we need 1 million numbers.
+
+Normal Function:
+
+    Creates all values together.
+
+Generator:
+
+    Creates values only when needed.
+
+Less memory is used.
+
+
+NORMAL FUNCTION
+------------------------------------------------------------
+
+    def get_numbers():
+        return [1,2,3]
+
+    result = get_numbers()
+
+Output:
+
+    [1,2,3]
+
+Entire list created immediately.
+
+
+GENERATOR FUNCTION
+------------------------------------------------------------
+
+    def get_numbers():
+        yield 1
+        yield 2
+        yield 3
+
+    result = get_numbers()
+
+Output:
+
+    <generator object>
+
+No values created yet.
+
+
+READING VALUES FROM GENERATOR
+------------------------------------------------------------
+
+    def get_numbers():
+        yield 1
+        yield 2
+        yield 3
+
+    g = get_numbers()
+
+    print(next(g))
+    print(next(g))
+    print(next(g))
+
+Output:
+
+    1
+    2
+    3
+
+
+HOW YIELD WORKS
+------------------------------------------------------------
+
+Step 1:
+
+    yield 1
+
+Generator pauses.
+
+Step 2:
+
+    next(g)
+
+Generator resumes.
+
+Step 3:
+
+    yield 2
+
+Generator pauses again.
+
+This continues until data finishes.
+
+
+YIELD VS RETURN
+------------------------------------------------------------
+
+RETURN
+
+    Return all data.
+    Function ends.
+
+Example:
+
+    return [1,2,3]
+
+YIELD
+
+    Return one value.
+    Pause function.
+    Resume later.
+
+Example:
+
+    yield 1
+
+
+INTERVIEW ANSWER
+------------------------------------------------------------
+
+Q. What is a Generator?
+
+Answer:
+
+    A Generator is a special function that uses yield to
+    create values one by one and is memory efficient.
+
+
+============================================================
+3. ITERATOR VS GENERATOR
+============================================================
+
+Iterator
+------------------------------------------------------------
+
+    Consumes existing data.
+
+Example:
+
+    it = iter([10,20,30])
+
+Data already exists.
+
+
+Generator
+------------------------------------------------------------
+
+    Produces data when needed.
+
+Example:
+
+    def numbers():
+        yield 10
+        yield 20
+
+Data generated on demand.
+
+
+INTERVIEW ANSWER
+------------------------------------------------------------
+
+Iterator:
+
+    Gives next value from existing data.
+
+Generator:
+
+    Creates values on demand using yield.
+
+
+============================================================
+4. MOST IMPORTANT INTERVIEW EXAMPLE
+============================================================
+
+Question:
+
+    Write a Generator that returns numbers from 1 to 5.
+
+Answer:
+
+    def numbers():
+
+        for i in range(1, 6):
+            yield i
+
+
+    g = numbers()
+
+    print(next(g))
+    print(next(g))
+    print(next(g))
+
+Output:
+
+    1
+    2
+    3
+
+
+Explanation You Can Give:
+
+    The function uses yield instead of return.
+    Each call to next() returns one value.
+    The function pauses after every yield.
+    It resumes when next() is called again.
+
+
+============================================================
+5. GENAI / RAG EXAMPLE
+============================================================
+
+Problem:
+
+    100,000 PDF chunks.
+
+Bad Approach:
+
+    chunks = load_all_chunks()
+
+Loads everything into memory.
+
+
+Better Approach:
+
+    def get_chunks(chunks):
+
+        for chunk in chunks:
+            yield chunk
+
+
+Usage:
+
+    for chunk in get_chunks(pdf_chunks):
+        create_embedding(chunk)
+
+
+Flow:
+
+    Chunk 1 -> Embedding
+    Chunk 2 -> Embedding
+    Chunk 3 -> Embedding
+
+Only one chunk is processed at a time.
+
+
+============================================================
+6. ONE-MINUTE REVISION
+============================================================
+
+Iterator
+
+    iter(data)
+    next(iterator)
+
+Generator
+
+    def func():
+        yield value
+
+Difference
+
+    Iterator -> Reads existing data.
+
+    Generator -> Produces data on demand.
+
+
+
+Q. What is a Generator?
+
+A Generator is a special function that uses yield to
+generate values one by one.
+
+Q. Why use Generators?
+
+To reduce memory usage and process large datasets.
+
+Q. Difference between return and yield?
+
+return:
+    Returns everything and ends function.
+
+yield:
+    Returns one value, pauses function,
+    resumes later.
+
+Q. GenAI Use Cases?
+
+    PDF Processing
+    Chunk Processing
+    Streaming Responses
+    RAG Pipelines
+    LangChain Applications
+
+
+============================================================
+END OF NOTES
+============================================================

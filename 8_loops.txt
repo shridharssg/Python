@@ -8,19 +8,6 @@
 
 
 ------------------------------------------------------------
-🔹 ✅ 1. Definition
-------------------------------------------------------------
-A loop is used to repeat a block of code multiple times.
-
-👉 Loop = “repeat the same task again and again”
-
-------------------------------------------------------------
-🔹 ✅ 2. Why Used
-------------------------------------------------------------
-	✔ Process large data
-	✔ Iterate over lists / dictionaries
-	✔ Handle GenAI / API responses
-	✔ Avoid code repetition
 
 ============================================================
 ✅ 1. FOR LOOP

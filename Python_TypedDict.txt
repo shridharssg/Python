@@ -1,0 +1,381 @@
+============================================================
+                    PYTHON TYPEDDICT
+============================================================
+
+1. WHAT IS THE PROBLEM?
+------------------------------------------------------------
+
+Suppose we have a normal dictionary.
+
+    user = {
+
+        "name": "John",
+
+        "age": 25
+    }
+
+Access data:
+
+    print(user["name"])
+
+Output:
+
+    John
+
+Works perfectly.
+
+
+============================================================
+2. WHAT IS THE PROBLEM?
+============================================================
+
+Suppose another developer adds:
+
+    user = {
+
+        "name": "John",
+
+        "age": "Twenty Five"
+    }
+
+or
+
+    user = {
+
+        "fullname": "John"
+    }
+
+Problems:
+
+    - Wrong key names
+    - Wrong data types
+    - No structure
+    - Difficult to maintain
+
+Dictionary can contain anything.
+
+Python doesn't know what keys should exist.
+
+
+============================================================
+3. SOLUTION - TYPEDDICT
+============================================================
+
+TypedDict allows us to define the structure
+of a dictionary.
+
+Example:
+
+    from typing import TypedDict
+
+    class User(TypedDict):
+
+        name: str
+
+        age: int
+
+
+Now everyone knows:
+
+    name -> String
+
+    age  -> Integer
+
+
+============================================================
+4. INTERVIEW DEFINITION
+============================================================
+
+TypedDict is used to define
+the expected structure of a dictionary.
+
+It tells developers:
+
+    - What keys should exist
+    - What type each value should be
+
+Benefits:
+
+    - Better Readability
+    - Better Type Safety
+    - Better IDE Support
+    - Better Maintainability
+
+
+============================================================
+5. BASIC EXAMPLE
+============================================================
+
+Define TypedDict:
+
+    from typing import TypedDict
+
+    class User(TypedDict):
+
+        name: str
+
+        age: int
+
+
+Create Object:
+
+    user: User = {
+
+        "name": "John",
+
+        "age": 25
+    }
+
+Everything is clear.
+
+
+============================================================
+6. WITHOUT TYPEDDICT
+============================================================
+
+Example:
+
+    user = {
+
+        "name": "John",
+
+        "age": 25
+    }
+
+Question:
+
+    What keys are expected?
+
+Answer:
+
+    We don't know.
+
+
+============================================================
+7. WITH TYPEDDICT
+============================================================
+
+Example:
+
+    class User(TypedDict):
+
+        name: str
+
+        age: int
+
+Immediately we know:
+
+    Required Keys:
+
+        name
+        age
+
+Types:
+
+        name -> str
+
+        age -> int
+
+
+============================================================
+8. TYPEDDICT + TYPE HINTS
+============================================================
+
+Type Hints and TypedDict work together.
+
+Example:
+
+    class User(TypedDict):
+
+        name: str
+
+        age: int
+
+
+Function:
+
+    def get_user() -> User:
+
+        return {
+
+            "name": "John",
+
+            "age": 25
+        }
+
+Return type is now clear.
+
+
+============================================================
+9. NESTED TYPEDDICT
+============================================================
+
+Example:
+
+    class Address(TypedDict):
+
+        city: str
+
+        country: str
+
+
+    class User(TypedDict):
+
+        name: str
+
+        address: Address
+
+
+Example Data:
+
+    user = {
+
+        "name": "John",
+
+        "address": {
+
+            "city": "Pune",
+
+            "country": "India"
+        }
+    }
+
+
+============================================================
+10. OPTIONAL FIELDS
+============================================================
+
+Sometimes keys may be optional.
+
+Example:
+
+    from typing import TypedDict
+    from typing import Optional
+
+    class User(TypedDict):
+
+        name: str
+
+        age: Optional[int]
+
+Meaning:
+
+    age can be:
+
+        int
+
+    OR
+
+        None
+
+
+============================================================
+11. REAL LANGGRAPH EXAMPLE
+============================================================
+
+This is where TypedDict becomes important.
+
+Example:
+
+    from typing import TypedDict
+
+    class AgentState(TypedDict):
+
+        question: str
+
+        answer: str
+
+State Example:
+
+    state = {
+
+        "question": "What is GenAI?",
+
+        "answer": ""
+    }
+
+
+============================================================
+14. INTERVIEW QUESTIONS
+============================================================
+
+Q. What is TypedDict?
+
+Answer:
+
+    TypedDict is used to define the expected
+    structure and data types of a dictionary.
+
+
+------------------------------------------------------------
+
+Q. Why use TypedDict?
+
+Answer:
+
+    - Better Readability
+    - Better Documentation
+    - Better IDE Support
+    - Better Maintainability
+
+
+------------------------------------------------------------
+
+Q. Difference between dict and TypedDict?
+
+Answer:
+
+    dict
+
+        No predefined structure.
+
+    TypedDict
+
+        Predefined keys and value types.
+
+
+------------------------------------------------------------
+
+Q. Why is TypedDict important in LangGraph?
+
+Answer:
+
+    LangGraph uses TypedDict for state
+    management between nodes.
+
+
+
+============================================================
+FOR 2 YEARS GENAI INTERVIEW
+============================================================
+
+Must Understand:
+
+    class User(TypedDict):
+
+        name: str
+
+        age: int
+
+
+LangGraph Example:
+
+    class AgentState(TypedDict):
+
+        question: str
+
+        retrieved_docs: list[str]
+
+        answer: str
+
+
+Most Important Interview Line:
+
+    TypedDict is used to define the
+    structure of a dictionary and is
+    commonly used in LangGraph for
+    managing graph state.
+
+============================================================
+END
+============================================================

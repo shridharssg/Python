@@ -72,8 +72,7 @@ Output (file content):
 ============================================================
 
 	with open("data.txt", "a") as file:
-	    file.write("
-GenAI Learning")
+	    file.write("GenAI Learning")
 
 Output (file content):
 	Hello Python

@@ -1,0 +1,371 @@
+============================================================
+                    PYDANTIC
+============================================================
+
+Type Hint
+    -> Documentation
+
+TypedDict
+    -> Dictionary Schema
+
+Pydantic
+    -> Dictionary Schema + Validation
+
+TypedDict
+    age: int
+
+Pydantic
+    age: int
+
+Input:
+    age="25"
+
+TypedDict:
+    No validation
+
+Pydantic:
+    Converts to 25
+
+Input:
+    age="ABC"
+
+TypedDict:
+    Accepts
+
+Pydantic:
+    Validation Error
+
+
+
+1. WHAT IS THE PROBLEM?
+------------------------------------------------------------
+
+Suppose we receive data from an API.
+
+    user = {
+
+        "name": "John",
+
+        "age": "25"
+    }
+
+Question:
+
+    Is age integer?
+
+Answer:
+
+    No
+
+It is String.
+
+Problem:
+
+    External systems often send
+    incorrect data types.
+
+We need validation.
+
+
+============================================================
+2. TYPE HINT PROBLEM
+============================================================
+
+Example:
+
+    def create_user(age: int):
+
+        print(age)
+
+Call:
+
+    create_user("25")
+
+Still works.
+
+Why?
+
+    Type Hints do not validate data.
+
+They only document expected types.
+
+
+============================================================
+3. TYPEDDICT PROBLEM
+============================================================
+
+Example:
+
+    class User(TypedDict):
+
+        name: str
+
+        age: int
+
+Data:
+
+    user = {
+
+        "name": "John",
+
+        "age": "25"
+    }
+
+Problem:
+
+    TypedDict describes structure.
+
+    It does not validate data.
+
+
+============================================================
+4. SOLUTION - PYDANTIC
+============================================================
+
+Pydantic validates data automatically.
+
+Example:
+
+    from pydantic import BaseModel
+
+    class User(BaseModel):
+
+        name: str
+
+        age: int
+
+
+Create Object:
+
+    user = User(
+
+        name="John",
+
+        age=25
+    )
+
+Data is validated.
+
+
+============================================================
+5. INTERVIEW DEFINITION
+============================================================
+
+Pydantic is a data validation and
+data parsing library.
+
+It uses Python Type Hints to:
+
+    - Validate Data
+    - Parse Data
+    - Convert Data
+    - Create Structured Models
+
+
+============================================================
+6. BASIC EXAMPLE
+============================================================
+
+    from pydantic import BaseModel
+
+    class User(BaseModel):
+
+        name: str
+
+        age: int
+
+
+    user = User(
+
+        name="John",
+
+        age=25
+    )
+
+Output:
+
+    User(
+        name='John',
+        age=25
+    )
+
+
+============================================================
+7. AUTOMATIC TYPE CONVERSION
+============================================================
+
+Input:
+
+    user = User(
+
+        name="John",
+
+        age="25"
+    )
+
+Notice:
+
+    age is string
+
+Pydantic automatically converts:
+
+    "25"
+
+to
+
+    25
+
+Result:
+
+    age => int
+
+This is one reason why Pydantic is powerful.
+
+
+============================================================
+8. VALIDATION ERROR
+============================================================
+
+Example:
+
+    user = User(
+
+        name="John",
+
+        age="ABC"
+    )
+
+Output:
+
+    Validation Error
+
+Reason:
+
+    "ABC"
+
+cannot be converted into integer.
+
+
+============================================================
+9. OPTIONAL FIELD
+============================================================
+
+    from typing import Optional
+
+    from pydantic import BaseModel
+
+
+    class User(BaseModel):
+
+        name: str
+
+        age: Optional[int] = None
+
+
+Valid:
+
+    User(name="John")
+
+Valid:
+
+    User(
+        name="John",
+        age=25
+    )
+
+
+============================================================
+10. NESTED MODEL
+============================================================
+
+Example:
+
+    class Address(BaseModel):
+
+        city: str
+
+        country: str
+
+
+    class User(BaseModel):
+
+        name: str
+
+        address: Address
+
+
+Data:
+
+    user = User(
+
+        name="John",
+
+        address={
+            "city": "Pune",
+            "country": "India"
+        }
+    )
+
+
+Pydantic validates entire object.
+
+
+============================================================
+11. REAL FASTAPI EXAMPLE
+============================================================
+
+    class UserRequest(BaseModel):
+
+        name: str
+
+        age: int
+
+
+FastAPI automatically validates:
+
+    HTTP Request
+
+using this model.
+
+
+============================================================
+13. LANGCHAIN EXAMPLE
+============================================================
+
+    from pydantic import BaseModel
+
+
+    class Product(BaseModel):
+
+        name: str
+
+        price: float
+
+
+LLM Structured Response:
+
+    {
+        "name":"Laptop",
+        "price":50000
+    }
+
+Pydantic ensures correct schema.
+
+
+============================================================
+14. LANGGRAPH EXAMPLE
+============================================================
+
+TypedDict is commonly used for State.
+
+Pydantic is commonly used for:
+
+    - Tool Input
+    - API Response
+    - Structured Output
+    - Validation Models
+
+
+============================================================
+15. INTERVIEW QUESTIONS
+===========

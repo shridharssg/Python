@@ -1,0 +1,217 @@
+============================================================
+        VARIABLES & DATA TYPES - QUICK NOTES
+============================================================
+============================================================
+PYTHON VS NODE.JS
+============================================================
+
+Python:
+
+    name = "Shridhar"
+
+    age = 30
+
+No need to specify type.
+
+----------------------------------------
+
+Node.js:
+
+    let name = "Shridhar";
+
+    let age = 30;
+
+Both are dynamically typed languages.
+
+
+============================================================
+COMMON DATA TYPES
+============================================================
+
+1. String (str)
+
+    name = "Shridhar"
+
+----------------------------------------
+
+2. Integer (int)
+
+    age = 30
+
+----------------------------------------
+
+3. Float
+
+    price = 99.99
+
+----------------------------------------
+
+4. Boolean (bool)
+
+    is_active = True
+
+----------------------------------------
+
+5. None
+
+    data = None
+
+Equivalent in Node.js:
+
+    let data = null;
+
+
+============================================================
+LIST
+============================================================
+
+Stores multiple values.
+
+Python:
+
+    fruits = ["Apple", "Mango"]
+
+Node.js:
+
+    let fruits = ["Apple", "Mango"];
+
+
+============================================================
+TUPLE
+============================================================
+
+Similar to List but Immutable.
+
+Python:
+
+    user = ("John", 30)
+
+Cannot modify after creation.
+
+Node.js:
+
+    No direct equivalent.
+
+
+============================================================
+DICTIONARY
+============================================================
+
+Stores data as Key-Value pairs.
+
+Python:
+
+    user = {
+
+        "name": "John",
+
+        "age": 30
+    }
+
+Node.js: Object
+
+    const user = {
+
+        name: "John",
+
+        age: 30
+    };
+
+
+============================================================
+SET
+============================================================
+
+Stores unique values only.
+
+Python:
+
+    numbers = {1, 2, 3}
+
+Node.js:
+
+    const numbers = new Set([1,2,3]);
+
+
+============================================================
+TYPE CHECKING
+============================================================
+
+Python:
+
+    age = 30
+
+    print(type(age))
+
+Output:
+
+    <class 'int'>
+
+
+Node.js:
+
+    typeof age
+
+
+============================================================
+TYPE CONVERSION
+============================================================
+
+String → Integer
+
+Python:
+
+    age = "30"
+
+    age_int = int(age)
+
+----------------------------------------
+
+Node.js:
+
+    let age = "30";
+
+    let ageInt = Number(age);
+
+
+============================================================
+INTERVIEW QUESTIONS
+============================================================
+
+Q. Is Python dynamically typed?
+
+A.
+
+    Yes.
+
+    No need to declare data type explicitly.
+
+----------------------------------------
+
+Q. Difference between List and Tuple?
+
+A.
+
+    List  -> Mutable
+
+    Tuple -> Immutable
+
+
+============================================================
+
+Python is Dynamically Typed.
+
+Example:
+
+    age = 30
+
+    age = "Thirty"
+
+Both are valid.
+
+Python automatically determines
+the data type.
+
+============================================================
+END
+============================================================

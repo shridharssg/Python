@@ -10,6 +10,19 @@ JSON is a common data format used to exchange data between systems.
 
 👉 JSON = common language between Python, APIs, frontend, LLM
 
+
+
+
+============================================================
+✅ MUST REMEMBER
+============================================================
+
+	✔ json.dumps() → Python → JSON
+	✔ json.loads() → JSON → Python
+
+============================================================
+
+
 ------------------------------------------------------------
 🔹 ✅ Why JSON is Needed
 ------------------------------------------------------------
@@ -93,12 +106,3 @@ Output:
 	Python dict  → JSON object
 	True         → true
 	None         → null
-
-============================================================
-✅ MUST REMEMBER
-============================================================
-
-	✔ json.dumps() → Python → JSON
-	✔ json.loads() → JSON → Python
-
-============================================================

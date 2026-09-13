@@ -1,0 +1,332 @@
+============================================================
+        GENERATOR INTERVIEW PROGRAMS (PYTHON)
+============================================================
+
+============================================================
+1. GENERATE NUMBERS FROM 1 TO N
+============================================================
+
+Interview Question:
+
+    Write a generator that returns numbers from 1 to 5.
+
+Program:
+
+    def generate_numbers():
+        for i in range(1, 6):
+            yield i
+
+    for num in generate_numbers():
+        print(num)
+
+Output:
+
+    1
+    2
+    3
+    4
+    5
+
+Explanation:
+
+    yield returns one value at a time.
+
+
+	What Python Actually Does
+
+		The for loop automatically calls next() behind the scenes.
+		
+		Python internally converts this:
+		
+			for num in g:
+				print(num)
+				
+				
+		into something like:
+		
+			while True:
+				try:
+					num = next(g)
+					print(num)
+				except StopIteration:
+					break		
+------------------------------------------------------------
+
+============================================================
+2. GENERATE EVEN NUMBERS
+============================================================
+
+Interview Question:
+
+    Generate even numbers from 1 to 10.
+
+Program:
+
+    def even_numbers():
+        for i in range(1, 11):
+            if i % 2 == 0:
+                yield i
+
+    for num in even_numbers():
+        print(num)
+
+Output:
+
+    2
+    4
+    6
+    8
+    10
+
+------------------------------------------------------------
+
+============================================================
+3. GENERATE SQUARE NUMBERS
+============================================================
+
+Interview Question:
+
+    Generate square of numbers from 1 to 5.
+
+Program:
+
+    def square_numbers():
+        for i in range(1, 6):
+            yield i * i
+
+    for num in square_numbers():
+        print(num)
+
+Output:
+
+    1
+    4
+    9
+    16
+    25
+
+------------------------------------------------------------
+
+============================================================
+4. STRING CHARACTER GENERATOR
+============================================================
+
+Interview Question:
+
+    Generate one character at a time from a string.
+
+Program:
+
+    def char_generator(text):
+        for ch in text:
+            yield ch
+
+    for ch in char_generator('Python'):
+        print(ch)
+
+Output:
+
+    P
+    y
+    t
+    h
+    o
+    n
+
+------------------------------------------------------------
+
+============================================================
+5. WORD GENERATOR
+============================================================
+
+Interview Question:
+
+    Generate one word at a time from a sentence.
+
+Program:
+
+    def word_generator(sentence):
+
+        words = sentence.split()
+
+        for word in words:
+            yield word
+
+    for word in word_generator('I Love GenAI'):
+        print(word)
+
+Output:
+
+    I
+    Love
+    GenAI
+
+------------------------------------------------------------
+
+============================================================
+6. CUSTOM RANGE GENERATOR
+============================================================
+
+Interview Question:
+
+    Create your own range() function using Generator.
+
+Program:
+
+    def my_range(start, end):
+
+        while start <= end:
+            yield start
+            start += 1
+
+    for num in my_range(1, 5):
+        print(num)
+
+Output:
+
+    1
+    2
+    3
+    4
+    5
+
+------------------------------------------------------------
+
+============================================================
+7. FIBONACCI GENERATOR
+============================================================
+
+Interview Question:
+
+    Generate first 10 Fibonacci numbers.
+
+Program:
+
+    def fibonacci(n):
+
+        a = 0
+        b = 1
+
+        for _ in range(n):
+            yield a
+            a, b = b, a + b
+
+    for num in fibonacci(10):
+        print(num)
+
+Output:
+
+    0
+    1
+    1
+    2
+    3
+    5
+    8
+    13
+    21
+    34
+
+------------------------------------------------------------
+
+============================================================
+8. READ FILE USING GENERATOR
+============================================================
+
+Interview Question:
+
+    Read a large file efficiently using Generator.
+
+Program:
+
+    def read_file(path):
+
+        with open(path) as file:
+            for line in file:
+                yield line
+
+    for line in read_file('data.txt'):
+        print(line)
+
+Why Used?
+
+    Reads one line at a time.
+    Uses less memory.
+
+------------------------------------------------------------
+
+============================================================
+9. RAG / LANGCHAIN STYLE QUESTION
+============================================================
+
+Interview Question:
+
+    Process document chunks one at a time using Generator.
+
+Program:
+
+    def chunk_generator(chunks):
+
+        for chunk in chunks:
+            yield chunk
+
+    pdf_chunks = [
+        'Chunk 1',
+        'Chunk 2',
+        'Chunk 3'
+    ]
+
+    for chunk in chunk_generator(pdf_chunks):
+        print(chunk)
+
+Output:
+
+    Chunk 1
+    Chunk 2
+    Chunk 3
+
+GenAI Explanation:
+
+    Instead of loading all chunks into memory,
+    Generator processes one chunk at a time.
+
+------------------------------------------------------------
+
+============================================================
+10. MOST IMPORTANT INTERVIEW QUESTION
+============================================================
+
+Question:
+
+    Write a generator that returns numbers from 1 to N.
+
+Program:
+
+    def generate(n):
+
+        for i in range(1, n + 1):
+            yield i
+
+    for num in generate(5):
+        print(num)
+
+Output:
+
+    1
+    2
+    3
+    4
+    5
+
+Explanation For Interview:
+
+    1. yield is used instead of return.
+    2. One value is generated at a time.
+    3. Function pauses after every yield.
+    4. Memory efficient.
+    5. Useful for large datasets.
+
+
+============================================================
+END OF NOTES
+============================================================

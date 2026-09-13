@@ -15,7 +15,7 @@ Get all keys
 Output:
 	dict_keys(['name', 'age'])
 
-👉 Node.js: Object.keys()
+👉 Node.js: Object.keys(user)
 
 ------------------------------------------------------------
 🔹 2. ✅ values()
@@ -27,7 +27,7 @@ Get all values
 Output:
 	dict_values(['Shridhar', 30])
 
-👉 Node.js: Object.values()
+👉 Node.js: Object.values(user)
 
 ------------------------------------------------------------
 🔹 3. ✅ items()
@@ -78,7 +78,7 @@ Remove by key
 ------------------------------------------------------------
 🔹 7. ✅ popitem()
 ------------------------------------------------------------
-Remove last inserted item
+Remove last item
 
 	user.popitem()
 

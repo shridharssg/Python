@@ -1,0 +1,355 @@
+============================================================
+           PYTHON TYPE HINTS - QUICK REVISION
+============================================================
+
+
+1. WHAT IS THE PROBLEM?
+------------------------------------------------------------
+
+Normal Python Function:
+
+    def add(a, b):
+        return a + b
+
+Usage:
+
+    result = add(10, 20)
+
+Output:
+
+    30
+
+Works perfectly.
+
+
+Problem:
+
+Somebody can call:
+
+    add("10", "20")
+
+Output:
+
+    1020
+
+Instead of:
+
+    30
+
+Reason:
+
+Python is Dynamically Typed.
+
+Python does not know what data type
+we intended to pass.
+
+
+
+============================================================
+
+WHAT IS TYPE HINT?
+------------------------------------------------------------
+
+Type Hint specifies the expected data type.
+
+Example:
+
+    def add(a: int, b: int) -> int:
+        return a + b
+
+
+BASIC SYNTAX
+------------------------------------------------------------
+
+Parameter:
+
+    a: int
+
+Return Type:
+
+    -> int
+
+Meaning:
+
+    Function accepts integer
+    Function returns integer
+
+
+IMPORTANT INTERVIEW POINT
+------------------------------------------------------------
+
+Type Hints DO NOT enforce validation.
+
+Example:
+
+    def add(a: int, b: int):
+        return a + b
+
+Still works:
+
+    add("10", "20")
+
+Output:
+
+    1020
+
+Type Hints are mainly for:
+
+    - Readability
+    - Documentation
+    - IDE Support
+    - Static Analysis
+
+
+COMMON TYPE HINTS
+------------------------------------------------------------
+
+String:
+
+    name: str
+
+Integer:
+
+    age: int
+
+Float:
+
+    salary: float
+
+Boolean:
+
+    is_active: bool
+
+
+LIST TYPE HINTS
+------------------------------------------------------------
+
+List of Strings:
+
+    names: list[str]
+
+List of Integers:
+
+    numbers: list[int]
+
+Example:
+
+    def get_names() -> listpass
+
+
+DICTIONARY TYPE HINTS
+------------------------------------------------------------
+
+Dictionary String -> String
+
+    user: dict[str, str]
+
+Dictionary String -> Integer
+
+    marks: dict[str, int]
+
+
+Example:
+
+    user: dict[str, str] = {
+
+        "name": "John",
+        "city": "Pune"
+    }
+
+Meaning:
+
+    Key Type   -> String
+
+    Value Type -> String
+
+
+Another Example:
+
+    marks: dict[str, int] = {
+
+        "math": 95,
+        "science": 90
+    }
+
+
+OPTIONAL TYPE
+------------------------------------------------------------
+
+Value can be int OR None
+
+    from typing import Optional
+
+    age: Optional[int]
+
+Example:
+
+    age: Optional[int] = None
+
+
+REAL GENAI EXAMPLES
+------------------------------------------------------------
+
+Function:
+
+    def retrieve(query: str) -> list
+		pass
+
+Meaning:
+
+    Input  -> String
+    Output -> List of Strings
+
+
+Embedding Function:
+
+    def generate_embedding(text: str) -> list
+		pass
+
+Meaning:
+
+    Input  -> Text
+    Output -> Vector
+
+
+LANGGRAPH EXAMPLE
+------------------------------------------------------------
+
+    from typing import TypedDict
+
+    class AgentState(TypedDict):
+
+        question: str
+
+        answer: str
+
+LangGraph uses Type Hints heavily.
+
+
+INTERVIEW QUESTIONS
+------------------------------------------------------------
+
+Q. What are Type Hints?
+
+A.
+
+    Type Hints specify expected data types
+    for variables, parameters, and return values.
+
+
+Q. Why use Type Hints?
+
+A.
+
+    - Better Readability
+    - Better Maintainability
+    - Better IDE Support
+    - Easier Debugging
+
+
+Q. Do Type Hints enforce validation?
+
+A.
+
+    No.
+    Python does not enforce them by default.
+
+
+Q. Why important in GenAI?
+
+A.
+
+    Helps understand data flow between:
+
+        - Agents
+        - Tools
+        - States
+        - Chains
+        - Workflows
+
+
+MOST IMPORTANT INTERVIEW EXPLANATION
+------------------------------------------------------------
+
+    def search(query: str) -> listExplanation:
+
+    query: str
+
+        Input should be String
+
+    -> list[str]
+
+        Output is List of Strings
+
+
+ONE-MINUTE REVISION
+------------------------------------------------------------
+
+Parameter:
+
+    a: int
+
+Return Type:
+
+    -> int
+
+String:
+
+    str
+
+Integer:
+
+    int
+
+Float:
+
+    float
+
+Boolean:
+
+    bool
+
+List:
+
+    list[str]
+    list[int]
+
+Dictionary:
+
+    dict[str, str]
+    dict[str, int]
+
+Optional:
+
+    Optional[int]
+
+LangGraph:
+
+    TypedDict + Type Hints
+
+Main Benefit:
+
+    Better Readability
+    Better Maintainability
+
+============================================================
+FOR 2 YEARS GENAI INTERVIEW
+============================================================
+
+Must Understand:
+
+    def search(query: str) -> str
+
+    def get_docs() -> list[str]
+
+    user: dict[str, str]
+
+    age: Optional[int]
+
+    class AgentState(TypedDict):
+        question: str
+        answer: str
+
+============================================================
+END
+============================================================
