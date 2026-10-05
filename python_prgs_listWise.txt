@@ -1,0 +1,818 @@
+=========================================================
+PYTHON LIST METHODS
+=========================================================
+
+---------------------------------------------------------
+✅ 1. append()
+---------------------------------------------------------
+
+Description:
+
+Adds a single element at the end of the list.
+
+Input:
+
+numbers = [1, 2, 3]
+
+Solution:
+
+numbers.append(4)
+
+print(numbers)
+
+Output:
+
+[1, 2, 3, 4]
+
+---------------------------------------------------------
+✅ 2. extend()
+---------------------------------------------------------
+
+Description:
+
+Adds multiple elements from another iterable.
+
+Input:
+
+a = [1, 2]
+b = [3, 4]
+
+Solution:
+
+a.extend(b)
+
+print(a)
+
+Output:
+
+[1, 2, 3, 4]
+
+---------------------------------------------------------
+✅ 3. insert()
+---------------------------------------------------------
+
+Description:
+
+Inserts element at a specific position.
+
+Input:
+
+numbers = [1, 2, 4]
+
+Solution:
+
+numbers.insert(2, 3)
+
+print(numbers)
+
+Output:
+
+[1, 2, 3, 4]
+
+---------------------------------------------------------
+✅ 4. remove()
+---------------------------------------------------------
+
+Description:
+
+Removes first occurrence of given value.
+
+Input:
+
+numbers = [1, 2, 3, 2]
+
+Solution:
+
+numbers.remove(2)
+
+print(numbers)
+
+Output:
+
+[1, 3, 2]
+
+---------------------------------------------------------
+✅ 5. pop()
+---------------------------------------------------------
+
+Description:
+
+Removes and returns element by index.
+Default is last element.
+
+Input:
+
+numbers = [1, 2, 3]
+
+Solution:
+
+value = numbers.pop()
+
+print(value)
+print(numbers)
+
+Output:
+
+3
+[1, 2]
+
+---------------------------------------------------------
+✅ 6. pop(index)
+---------------------------------------------------------
+
+Description:
+
+Removes element from specified index.
+
+Input:
+
+numbers = [10, 20, 30, 40]
+
+Solution:
+
+numbers.pop(1)
+
+print(numbers)
+
+Output:
+
+[10, 30, 40]
+
+---------------------------------------------------------
+✅ 7. clear()
+---------------------------------------------------------
+
+Description:
+
+Removes all elements from list.
+
+Input:
+
+numbers = [1, 2, 3]
+
+Solution:
+
+numbers.clear()
+
+print(numbers)
+
+Output:
+
+[]
+
+---------------------------------------------------------
+✅ 8. index()
+---------------------------------------------------------
+
+Description:
+
+Returns position of first occurrence.
+
+Input:
+
+numbers = [10, 20, 30]
+
+Solution:
+
+print(numbers.index(20))
+
+Output:
+
+1
+
+---------------------------------------------------------
+✅ 9. count()
+---------------------------------------------------------
+
+Description:
+
+Counts occurrences of a value.
+
+Input:
+
+numbers = [1,2,2,2,3]
+
+Solution:
+
+print(numbers.count(2))
+
+Output:
+
+3
+
+---------------------------------------------------------
+✅ 10. sort()
+---------------------------------------------------------
+
+Description:
+
+Sorts original list ascending.
+
+Input:
+
+numbers = [5, 3, 1, 4]
+
+Solution:
+
+numbers.sort()
+
+print(numbers)
+
+Output:
+
+[1, 3, 4, 5]
+
+---------------------------------------------------------
+✅ 11. sort(reverse=True)
+---------------------------------------------------------
+
+Description:
+
+Sorts original list descending.
+
+Input:
+
+numbers = [5, 3, 1, 4]
+
+Solution:
+
+numbers.sort(reverse=True)
+
+print(numbers)
+
+Output:
+
+[5, 4, 3, 1]
+
+---------------------------------------------------------
+✅ 12. sorted()
+---------------------------------------------------------
+
+Description:
+
+Returns new sorted list.
+
+Original list remains unchanged.
+
+Input:
+
+numbers = [5, 3, 1]
+
+Solution:
+
+result = sorted(numbers)
+
+print(result)
+print(numbers)
+
+Output:
+
+[1, 3, 5]
+[5, 3, 1]
+
+---------------------------------------------------------
+✅ 13. reverse()
+---------------------------------------------------------
+
+Description:
+
+Reverses original list.
+
+Input:
+
+numbers = [1,2,3,4]
+
+Solution:
+
+numbers.reverse()
+
+print(numbers)
+
+Output:
+
+[4,3,2,1]
+
+---------------------------------------------------------
+✅ 14. copy()
+---------------------------------------------------------
+
+Description:
+
+Creates shallow copy of list.
+
+Input:
+
+numbers = [1,2,3]
+
+Solution:
+
+new_list = numbers.copy()
+
+print(new_list)
+
+Output:
+
+[1,2,3]
+
+---------------------------------------------------------
+✅ 15. len()
+---------------------------------------------------------
+
+Description:
+
+Returns number of elements.
+
+Input:
+
+numbers = [10,20,30,40]
+
+Solution:
+
+print(len(numbers))
+
+Output:
+
+4
+
+---------------------------------------------------------
+✅ 16. max()
+---------------------------------------------------------
+
+Description:
+
+Returns largest element.
+
+Input:
+
+numbers = [10,50,20]
+
+Solution:
+
+print(max(numbers))
+
+Output:
+
+50
+
+---------------------------------------------------------
+✅ 17. min()
+---------------------------------------------------------
+
+Description:
+
+Returns smallest element.
+
+Input:
+
+numbers = [10,50,20]
+
+Solution:
+
+print(min(numbers))
+
+Output:
+
+10
+
+---------------------------------------------------------
+✅ 18. sum()
+---------------------------------------------------------
+
+Description:
+
+Returns sum of elements.
+
+Input:
+
+numbers = [10,20,30]
+
+Solution:
+
+print(sum(numbers))
+
+Output:
+
+60
+
+---------------------------------------------------------
+✅ 19. any()
+---------------------------------------------------------
+
+Description:
+
+Returns True if at least one value is True.
+
+Input:
+
+numbers = [False, False, True]
+
+Solution:
+
+print(any(numbers))
+
+Output:
+
+True
+
+---------------------------------------------------------
+✅ 20. all()
+---------------------------------------------------------
+
+Description:
+
+Returns True only if all values are True.
+
+Input:
+
+numbers = [True, True, True]
+
+Solution:
+
+print(all(numbers))
+
+Output:
+
+True
+
+---------------------------------------------------------
+✅ 21. in Operator
+---------------------------------------------------------
+
+Description:
+
+Checks whether value exists.
+
+Input:
+
+numbers = [1,2,3]
+
+Solution:
+
+print(2 in numbers)
+
+Output:
+
+True
+
+---------------------------------------------------------
+✅ 22. not in Operator
+---------------------------------------------------------
+
+Description:
+
+Checks value is absent.
+
+Input:
+
+numbers = [1,2,3]
+
+Solution:
+
+print(5 not in numbers)
+
+Output:
+
+True
+
+---------------------------------------------------------
+✅ 23. List Slicing
+---------------------------------------------------------
+
+Description:
+
+Extract specific portion of list.
+
+Input:
+
+numbers = [10,20,30,40,50]
+
+Solution:
+	list[start:end]
+	Start Index  -> Included
+	End Index    -> Excluded
+
+print(numbers[1:4])
+
+Output:
+
+[20,30,40]
+
+---------------------------------------------------------
+✅ 24. List Concatenation (+)
+---------------------------------------------------------
+
+Description:
+
+Combines lists.
+
+Input:
+
+a = [1,2]
+b = [3,4]
+
+Solution:
+
+print(a + b)
+
+Output:
+
+[1,2,3,4]
+
+---------------------------------------------------------
+✅ 25. Repeat List (*)
+---------------------------------------------------------
+
+Description:
+
+Repeats list multiple times.
+
+Input:
+
+numbers = [1,2]
+
+Solution:
+
+print(numbers * 3)
+
+Output:
+
+[1,2,1,2,1,2]
+
+---------------------------------------------------------
+✅ 26. List Comprehension
+---------------------------------------------------------
+
+Description:
+
+Creates list in single line.
+
+Input:
+
+numbers = [1,2,3,4]
+
+Solution:
+
+result = [x * 2 for x in numbers]
+
+print(result)
+
+Output:
+
+[2,4,6,8]
+
+---------------------------------------------------------
+✅ 27. Filter Even Numbers
+---------------------------------------------------------
+
+Description:
+
+Create list with condition.
+
+Input:
+
+numbers = [1,2,3,4,5,6]
+
+Solution:
+
+even = [x for x in numbers if x % 2 == 0]
+
+print(even)
+
+Output:
+
+[2,4,6]
+
+---------------------------------------------------------
+✅ 28. enumerate()
+---------------------------------------------------------
+
+Description:
+
+Returns index and value.
+
+Input:
+
+names = ["A","B","C"]
+
+Solution:
+
+for index, value in enumerate(names):
+    print(index, value)
+
+Output:
+
+0 A
+1 B
+2 C
+
+---------------------------------------------------------
+✅ 29. zip()
+---------------------------------------------------------
+
+Description:
+
+Combines multiple lists.
+
+Input:
+
+names = ["John","Mike"]
+ages = [25,30]
+
+Solution:
+
+print(list(zip(names, ages)))
+
+Output:
+
+[('John', 25), ('Mike', 30)]
+
+---------------------------------------------------------
+✅ 30. unpacking (*)
+---------------------------------------------------------
+
+Description:
+
+Extract list values.
+
+Input:
+
+	numbers = [10,20,30]
+
+Solution:
+
+	a,b,c = numbers
+	x, _, z = numbers
+
+	print(a,b,c)
+	print(x,z)
+
+Output:
+
+10 20 30
+
+---------------------------------------------------------
+✅ 31. Nested List Access
+---------------------------------------------------------
+
+Description:
+
+Access elements from nested lists.
+
+Input:
+
+arr = [[1,2],[3,4]]
+
+Solution:
+
+print(arr[1][0])
+
+Output:
+
+3
+
+---------------------------------------------------------
+✅ 32. Flatten List
+---------------------------------------------------------
+
+Description:
+
+Convert nested list into flat list.
+
+Input:
+
+[[1,2],[3,4]]
+
+Solution:
+
+result = []
+
+for item in [[1,2],[3,4]]:
+    result.extend(item)
+
+print(result)
+
+Output:
+
+[1,2,3,4]
+
+================
+	result = []
+	def flatten(lst):
+		for item in lst:
+			if isinstance(item, list):
+				flatten(item)
+			else:
+				result.append(item)
+
+
+	data = [[1,2],[3,[4,5,[6,7]]]]
+
+	flatten(data)
+	print(result)
+
+
+or if result variable inside the function
+
+
+	def flatten(lst):
+		result = []
+		for item in lst:
+			if isinstance(item, list):
+				result.extend(flatten(item))	#to collect the list returned by the recursive call.
+			else:
+				result.append(item)
+
+		return result
+
+	data = [[1,2],[3,[4,5,[6,7]]]]
+
+	print(flatten(data))
+
+---------------------------------------------------------
+✅ 33. Remove Duplicates
+---------------------------------------------------------
+
+Description:
+
+Keep unique values only.
+
+Input:
+
+[1,2,2,3,3,4]
+
+Solution:
+
+print(list(set([1,2,2,3,3,4])))
+
+Output:
+
+[1,2,3,4]
+
+---------------------------------------------------------
+✅ 34. Find Common Elements
+---------------------------------------------------------
+
+Description:
+
+Find intersection.
+
+Input:
+
+a = [1,2,3,4]
+b = [3,4,5,6]
+
+Solution:
+
+print(list(set(a) & set(b)))
+
+Output:
+
+[3,4]
+
+---------------------------------------------------------
+✅ 35. Find Difference
+---------------------------------------------------------
+
+Description:
+
+Elements present in first list only.
+
+Input:
+
+a = [1,2,3,4]
+b = [3,4,5]
+
+Solution:
+
+print(list(set(a) - set(b)))
+
+Output:
+
+[1,2]
+
+=========================================================
+MOST IMPORTANT LIST METHODS FOR INTERVIEWS
+=========================================================
+
+⭐⭐⭐⭐⭐ append()
+⭐⭐⭐⭐⭐ extend()
+⭐⭐⭐⭐⭐ insert()
+⭐⭐⭐⭐⭐ remove()
+⭐⭐⭐⭐⭐ pop()
+⭐⭐⭐⭐⭐ sort()
+⭐⭐⭐⭐⭐ sorted()
+⭐⭐⭐⭐⭐ reverse()
+⭐⭐⭐⭐⭐ count()
+⭐⭐⭐⭐⭐ index()
+⭐⭐⭐⭐⭐ copy()
+⭐⭐⭐⭐⭐ slice
+⭐⭐⭐⭐⭐ list comprehension
+⭐⭐⭐⭐⭐ enumerate()
+⭐⭐⭐⭐⭐ zip()
+⭐⭐⭐⭐⭐ flatten list
+⭐⭐⭐⭐⭐ remove duplicates
+⭐⭐⭐⭐⭐ common elements
+
+=========================================================
+END OF FILE
+=========================================================
